@@ -1,0 +1,13 @@
+# Render service definition for the backend service.
+# Set production env vars in Render dashboard, including TARGET_DATABASE_URL, METADATA_DATABASE_URL,
+# LLM_PROVIDER, EMBEDDINGS_PROVIDER, OPENAI_API_KEY, and any other secrets.
+
+services:
+  - name: text-to-sql-backend
+    type: web_service
+    env: python
+    plan: starter
+    region: oregon
+    root: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT

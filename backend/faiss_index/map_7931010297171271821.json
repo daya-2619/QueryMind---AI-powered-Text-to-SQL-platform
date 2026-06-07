@@ -1,0 +1,39 @@
+{
+  "0": {
+    "name": "mock_products",
+    "description": "Table mock_products",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "title",
+        "data_type": "TEXT",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column title of type TEXT"
+      },
+      {
+        "name": "price",
+        "data_type": "DECIMAL(10, 2)",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column price of type DECIMAL(10, 2)"
+      }
+    ],
+    "estimated_row_count": 120
+  }
+}

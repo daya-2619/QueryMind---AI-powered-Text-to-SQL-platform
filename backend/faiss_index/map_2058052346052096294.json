@@ -1,0 +1,551 @@
+{
+  "0": {
+    "name": "execution_logs",
+    "description": "Table execution_logs",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "timestamp",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column timestamp of type VARCHAR"
+      },
+      {
+        "name": "model_id",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column model_id of type VARCHAR"
+      },
+      {
+        "name": "status",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column status of type VARCHAR"
+      },
+      {
+        "name": "latency",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column latency of type VARCHAR"
+      },
+      {
+        "name": "cost",
+        "data_type": "DOUBLE PRECISION",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column cost of type DOUBLE PRECISION"
+      }
+    ],
+    "estimated_row_count": -1
+  },
+  "1": {
+    "name": "activities",
+    "description": "Table activities",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "entity_name",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column entity_name of type VARCHAR"
+      },
+      {
+        "name": "tier",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column tier of type VARCHAR"
+      },
+      {
+        "name": "status",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column status of type VARCHAR"
+      },
+      {
+        "name": "value",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column value of type VARCHAR"
+      },
+      {
+        "name": "confidence",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column confidence of type INTEGER"
+      }
+    ],
+    "estimated_row_count": -1
+  },
+  "2": {
+    "name": "kpi_records",
+    "description": "Table kpi_records",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "region",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column region of type VARCHAR"
+      },
+      {
+        "name": "days",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column days of type INTEGER"
+      },
+      {
+        "name": "total_revenue",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column total_revenue of type VARCHAR"
+      },
+      {
+        "name": "revenue_growth",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column revenue_growth of type VARCHAR"
+      },
+      {
+        "name": "net_profit",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column net_profit of type VARCHAR"
+      },
+      {
+        "name": "profit_growth",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column profit_growth of type VARCHAR"
+      },
+      {
+        "name": "active_users",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column active_users of type VARCHAR"
+      },
+      {
+        "name": "user_growth",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column user_growth of type VARCHAR"
+      },
+      {
+        "name": "growth_rate",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column growth_rate of type VARCHAR"
+      },
+      {
+        "name": "growth_change",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column growth_change of type VARCHAR"
+      },
+      {
+        "name": "revenue_chart_data",
+        "data_type": "TEXT",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column revenue_chart_data of type TEXT"
+      },
+      {
+        "name": "region_data",
+        "data_type": "TEXT",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column region_data of type TEXT"
+      }
+    ],
+    "estimated_row_count": -1
+  },
+  "3": {
+    "name": "dim_customers",
+    "description": "Table dim_customers",
+    "columns": [
+      {
+        "name": "customer_code",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column customer_code of type VARCHAR"
+      },
+      {
+        "name": "customer",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column customer of type VARCHAR"
+      },
+      {
+        "name": "market",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column market of type VARCHAR"
+      },
+      {
+        "name": "platform",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column platform of type VARCHAR"
+      },
+      {
+        "name": "channel",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column channel of type VARCHAR"
+      },
+      {
+        "name": "company",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column company of type VARCHAR"
+      }
+    ],
+    "estimated_row_count": 53
+  },
+  "4": {
+    "name": "dim_products",
+    "description": "Table dim_products",
+    "columns": [
+      {
+        "name": "product_code",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product_code of type VARCHAR"
+      },
+      {
+        "name": "division",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column division of type VARCHAR"
+      },
+      {
+        "name": "category",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column category of type VARCHAR"
+      },
+      {
+        "name": "product",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product of type VARCHAR"
+      },
+      {
+        "name": "variant",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column variant of type VARCHAR"
+      },
+      {
+        "name": "company",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column company of type VARCHAR"
+      }
+    ],
+    "estimated_row_count": 414
+  },
+  "5": {
+    "name": "dim_gross_prices",
+    "description": "Table dim_gross_prices",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "product_code",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product_code of type VARCHAR"
+      },
+      {
+        "name": "price",
+        "data_type": "DOUBLE PRECISION",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column price of type DOUBLE PRECISION"
+      },
+      {
+        "name": "year",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column year of type INTEGER"
+      },
+      {
+        "name": "month",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column month of type INTEGER"
+      },
+      {
+        "name": "company",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column company of type VARCHAR"
+      }
+    ],
+    "estimated_row_count": 884
+  },
+  "6": {
+    "name": "fact_orders",
+    "description": "Table fact_orders",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "order_id",
+        "data_type": "VARCHAR",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column order_id of type VARCHAR"
+      },
+      {
+        "name": "date",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column date of type VARCHAR"
+      },
+      {
+        "name": "product_code",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product_code of type VARCHAR"
+      },
+      {
+        "name": "customer_code",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column customer_code of type VARCHAR"
+      },
+      {
+        "name": "sold_quantity",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column sold_quantity of type INTEGER"
+      },
+      {
+        "name": "company",
+        "data_type": "VARCHAR",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column company of type VARCHAR"
+      }
+    ],
+    "estimated_row_count": 141257
+  }
+}

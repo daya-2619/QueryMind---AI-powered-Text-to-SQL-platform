@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+  }
+}
+
+/* Custom premium scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* AG Grid Dark Theme Override variables */
+.ag-theme-alpine-dark {
+  --ag-grid-size: 8px;
+  --ag-list-item-height: 28px;
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 13px;
+  --ag-card-shadow: none;
+  --ag-card-radius: 8px;
+  
+  --ag-background-color: #0f172a;
+  --ag-header-background-color: #1e293b;
+  --ag-border-color: #334155;
+  --ag-row-border-color: #1e293b;
+  --ag-foreground-color: #f1f5f9;
+  --ag-header-foreground-color: #94a3b8;
+  --ag-selected-row-background-color: #1e293b;
+  --ag-hover-color: #1e293b;
+}
+.ag-theme-alpine-dark .ag-root-wrapper {
+  border-radius: 8px;
+  border: 1px solid #334155 !important;
+}
+
+/* Hide default theme icon glyphs when custom SVGs are injected */
+.ag-theme-alpine-dark .ag-icon-first::before,
+.ag-theme-alpine-dark .ag-icon-previous::before,
+.ag-theme-alpine-dark .ag-icon-next::before,
+.ag-theme-alpine-dark .ag-icon-last::before,
+.ag-theme-alpine-dark .ag-icon-asc::before,
+.ag-theme-alpine-dark .ag-icon-desc::before {
+  content: none !important;
+}

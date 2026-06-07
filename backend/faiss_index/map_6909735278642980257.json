@@ -1,0 +1,317 @@
+{
+  "0": {
+    "name": "customers",
+    "description": "Table customers",
+    "columns": [
+      {
+        "name": "customer_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column customer_id of type INTEGER"
+      },
+      {
+        "name": "first_name",
+        "data_type": "VARCHAR(50)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column first_name of type VARCHAR(50)"
+      },
+      {
+        "name": "last_name",
+        "data_type": "VARCHAR(50)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column last_name of type VARCHAR(50)"
+      },
+      {
+        "name": "email",
+        "data_type": "VARCHAR(100)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column email of type VARCHAR(100)"
+      },
+      {
+        "name": "city",
+        "data_type": "VARCHAR(50)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column city of type VARCHAR(50)"
+      },
+      {
+        "name": "country",
+        "data_type": "VARCHAR(50)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column country of type VARCHAR(50)"
+      },
+      {
+        "name": "created_at",
+        "data_type": "TIMESTAMP",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column created_at of type TIMESTAMP"
+      }
+    ],
+    "estimated_row_count": 15
+  },
+  "1": {
+    "name": "order_items",
+    "description": "Table order_items",
+    "columns": [
+      {
+        "name": "order_item_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column order_item_id of type INTEGER"
+      },
+      {
+        "name": "order_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": true,
+        "foreign_key_table": "orders",
+        "foreign_key_column": "order_id",
+        "description": "Column order_id of type INTEGER"
+      },
+      {
+        "name": "product_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": true,
+        "foreign_key_table": "products",
+        "foreign_key_column": "product_id",
+        "description": "Column product_id of type INTEGER"
+      },
+      {
+        "name": "quantity",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column quantity of type INTEGER"
+      },
+      {
+        "name": "unit_price",
+        "data_type": "DECIMAL(10, 2)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column unit_price of type DECIMAL(10, 2)"
+      }
+    ],
+    "estimated_row_count": 77
+  },
+  "2": {
+    "name": "orders",
+    "description": "Table orders",
+    "columns": [
+      {
+        "name": "order_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column order_id of type INTEGER"
+      },
+      {
+        "name": "customer_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": true,
+        "foreign_key_table": "customers",
+        "foreign_key_column": "customer_id",
+        "description": "Column customer_id of type INTEGER"
+      },
+      {
+        "name": "order_date",
+        "data_type": "TIMESTAMP",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column order_date of type TIMESTAMP"
+      },
+      {
+        "name": "total_amount",
+        "data_type": "DECIMAL(10, 2)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column total_amount of type DECIMAL(10, 2)"
+      },
+      {
+        "name": "status",
+        "data_type": "VARCHAR(20)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column status of type VARCHAR(20)"
+      }
+    ],
+    "estimated_row_count": 30
+  },
+  "3": {
+    "name": "products",
+    "description": "Table products",
+    "columns": [
+      {
+        "name": "product_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product_id of type INTEGER"
+      },
+      {
+        "name": "product_name",
+        "data_type": "VARCHAR(100)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column product_name of type VARCHAR(100)"
+      },
+      {
+        "name": "category",
+        "data_type": "VARCHAR(50)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column category of type VARCHAR(50)"
+      },
+      {
+        "name": "price",
+        "data_type": "DECIMAL(10, 2)",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column price of type DECIMAL(10, 2)"
+      },
+      {
+        "name": "stock_quantity",
+        "data_type": "INTEGER",
+        "is_nullable": false,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column stock_quantity of type INTEGER"
+      }
+    ],
+    "estimated_row_count": 25
+  },
+  "4": {
+    "name": "reviews",
+    "description": "Table reviews",
+    "columns": [
+      {
+        "name": "review_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": true,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column review_id of type INTEGER"
+      },
+      {
+        "name": "product_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": true,
+        "foreign_key_table": "products",
+        "foreign_key_column": "product_id",
+        "description": "Column product_id of type INTEGER"
+      },
+      {
+        "name": "customer_id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": true,
+        "foreign_key_table": "customers",
+        "foreign_key_column": "customer_id",
+        "description": "Column customer_id of type INTEGER"
+      },
+      {
+        "name": "rating",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column rating of type INTEGER"
+      },
+      {
+        "name": "review_text",
+        "data_type": "TEXT",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column review_text of type TEXT"
+      },
+      {
+        "name": "review_date",
+        "data_type": "TIMESTAMP",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column review_date of type TIMESTAMP"
+      }
+    ],
+    "estimated_row_count": 15
+  }
+}

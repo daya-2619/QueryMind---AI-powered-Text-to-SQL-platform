@@ -1,0 +1,29 @@
+{
+  "0": {
+    "name": "items",
+    "description": "Table items",
+    "columns": [
+      {
+        "name": "id",
+        "data_type": "INTEGER",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column id of type INTEGER"
+      },
+      {
+        "name": "name",
+        "data_type": "TEXT",
+        "is_nullable": true,
+        "is_primary": false,
+        "is_foreign": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "description": "Column name of type TEXT"
+      }
+    ],
+    "estimated_row_count": 2
+  }
+}

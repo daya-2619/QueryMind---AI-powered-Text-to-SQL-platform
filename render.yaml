@@ -6,8 +6,10 @@ services:
   - name: text-to-sql-backend
     type: web_service
     env: python
-    plan: starter
+    plan: standard
     region: oregon
     root: backend
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python scripts/prebuild_schema_rag_index.py
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT

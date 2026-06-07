@@ -32,6 +32,20 @@ class SchemaRAGService:
         self._transformer_model = None
         self._active_schemas: Dict[str, List[Dict[str, Any]]] = {} # key: connection_url, val: tables metadata
 
+    def _get_index_paths(self, connection_url: str) -> Tuple[str, str]:
+        db_hash = str(abs(hash(connection_url)))
+        map_path = os.path.join(self.vector_db_path, f"map_{db_hash}.json")
+        index_path = os.path.join(self.vector_db_path, f"index_{db_hash}.faiss")
+        return map_path, index_path
+
+    def index_exists(self, connection_url: str) -> bool:
+        map_path, index_path = self._get_index_paths(connection_url)
+        if not os.path.exists(map_path):
+            return False
+        if HAS_FAISS and not os.path.exists(index_path):
+            return False
+        return True
+
     def _get_local_model(self):
         """Lazy load the sentence-transformer model to save memory on start."""
         global HAS_SENTENCE_TRANSFORMERS
@@ -136,9 +150,7 @@ class SchemaRAGService:
         Falls back to keyword matching if FAISS isn't available.
         Relational Expansion is applied to include immediate join neighbors.
         """
-        db_hash = str(abs(hash(connection_url)))
-        map_path = os.path.join(self.vector_db_path, f"map_{db_hash}.json")
-        index_path = os.path.join(self.vector_db_path, f"index_{db_hash}.faiss")
+        map_path, index_path = self._get_index_paths(connection_url)
         
         # Ensure schema table mapping file exists
         if not os.path.exists(map_path):

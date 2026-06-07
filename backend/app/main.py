@@ -44,6 +44,9 @@ async def lifespan(app: FastAPI):
                 adapter = get_adapter(settings.TARGET_DATABASE_URL)
                 logger.info("Verifying connection to target database...")
                 if adapter.test_connection():
+                    if schema_rag.index_exists(settings.TARGET_DATABASE_URL):
+                        logger.info("Existing Schema RAG index found. Skipping rebuild at startup.")
+                        return
                     logger.info("Target database connected successfully! Building/synchronizing Schema RAG vector index in background...")
                     try:
                         # run potentially long-running index build in threadpool to avoid blocking event loop

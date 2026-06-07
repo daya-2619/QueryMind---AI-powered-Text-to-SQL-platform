@@ -1,5 +1,6 @@
 import logging
 from contextlib import asynccontextmanager
+import asyncio
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
@@ -21,33 +22,45 @@ logger = logging.getLogger("main")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Pre-initialize schema embeddings and connection adapter pools on start."""
+    """Pre-initialize schema embeddings and connection adapter pools on start.
+
+    Heavy index building is scheduled as a background task so the server
+    can bind the listening port immediately (important for platform healthchecks).
+    """
     logger.info("Initializing Enterprise Text-to-SQL Analytics Platform...")
     
     # 0. Initialize database metadata tables
     logger.info("Creating platform metadata database tables...")
     Base.metadata.create_all(bind=metadata_engine)
-    
+
     # 1. Inspect configured providers
     logger.info(f"Configured LLM: {settings.LLM_PROVIDER}")
     logger.info(f"Configured Embeddings: {settings.EMBEDDINGS_PROVIDER}")
-    
-    # 2. Verify target database connection and build index
-    if settings.TARGET_DATABASE_URL:
-        adapter = get_adapter(settings.TARGET_DATABASE_URL)
-        logger.info("Verifying connection to target database...")
-        if adapter.test_connection():
-            logger.info("Target database connected successfully! Building/synchronizing Schema RAG vector index...")
+
+    # 2. Verify target database connection and build index asynchronously
+    async def _build_index_background():
+        if settings.TARGET_DATABASE_URL:
             try:
-                schema_rag.build_index(settings.TARGET_DATABASE_URL)
-                logger.info("Schema RAG vector index initialized on startup.")
+                adapter = get_adapter(settings.TARGET_DATABASE_URL)
+                logger.info("Verifying connection to target database...")
+                if adapter.test_connection():
+                    logger.info("Target database connected successfully! Building/synchronizing Schema RAG vector index in background...")
+                    try:
+                        # run potentially long-running index build in threadpool to avoid blocking event loop
+                        await asyncio.to_thread(schema_rag.build_index, settings.TARGET_DATABASE_URL)
+                        logger.info("Schema RAG vector index initialized (background task).")
+                    except Exception as e:
+                        logger.error(f"Failed to build schema RAG index in background: {e}")
+                else:
+                    logger.error("Failed to connect to target database. Verify settings.TARGET_DATABASE_URL.")
             except Exception as e:
-                logger.error(f"Failed to build schema RAG index on startup: {e}")
+                logger.error(f"Error while preparing Schema RAG background task: {e}")
         else:
-            logger.error("Failed to connect to target database. Verify settings.TARGET_DATABASE_URL.")
-    else:
-        logger.warning("No TARGET_DATABASE_URL configured. Indexing deferred until first execution.")
-    
+            logger.warning("No TARGET_DATABASE_URL configured. Indexing deferred until first execution.")
+
+    # schedule background index build and yield immediately so the server can bind to the port
+    asyncio.create_task(_build_index_background())
+
     yield
 
 app = FastAPI(
